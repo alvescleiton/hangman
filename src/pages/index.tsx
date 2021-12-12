@@ -1,8 +1,11 @@
 import { NextPage } from "next"
+import Background from "../components/Background"
 
 const Home: NextPage = () => {
   return (
-    <>Hangman</>
+    <Background>
+      Hangman
+    </Background>
   )
 }
 
