@@ -1,11 +1,11 @@
 import Person from "../Person"
-import { Container } from "./styles"
+import { ImgBackground } from "./styles"
 
 const Gibbet = () => {
   return (
-    <Container>
+    <ImgBackground>
       <Person />
-    </Container>
+    </ImgBackground>
   )
 }
 
