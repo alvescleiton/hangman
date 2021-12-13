@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  position: relative;
+  position: absolute;
+  top: 30px;
+  left: 214px;
 `
 
 export const Head = styled.div`
   position: absolute;
-  top: 30px;
-  left: 190px;
+  top: 0;
+  left: 0;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -16,8 +18,8 @@ export const Head = styled.div`
 
 export const Body = styled.div`
   position: absolute;
-  top: 80px;
-  left: 212px;
+  top: 50px;
+  left: 22px;
   background-color: #000;
   width: 6px;
   height: 70px;
@@ -25,8 +27,8 @@ export const Body = styled.div`
 
 export const LeftArm = styled.div`
   position: absolute;
-  top: 88px;
-  left: 202px;
+  top: 58px;
+  left: 12px;
   background-color: #000;
   width: 6px;
   height: 40px;
@@ -35,8 +37,8 @@ export const LeftArm = styled.div`
 
 export const RightArm = styled.div`
   position: absolute;
-  top: 88px;
-  left: 222px;
+  top: 58px;
+  left: 32px;
   background-color: #000;
   width: 6px;
   height: 40px;
@@ -45,8 +47,8 @@ export const RightArm = styled.div`
 
 export const LeftLeg = styled.div`
   position: absolute;
-  top: 146px;
-  left: 202px;
+  top: 116px;
+  left: 12px;
   background-color: #000;
   width: 6px;
   height: 40px;
@@ -55,8 +57,8 @@ export const LeftLeg = styled.div`
 
 export const RightLeg = styled.div`
   position: absolute;
-  top: 146px;
-  left: 222px;
+  top: 116px;
+  left: 32px;
   background-color: #000;
   width: 6px;
   height: 40px;
