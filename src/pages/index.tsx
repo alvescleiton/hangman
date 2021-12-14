@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import Background from "../components/Background"
 import Gibbet from "../components/Gibbet"
-import Letters from '../components/Letters'
+import Alphabet from '../components/Alphabet'
 import MainContainer from "../components/MainContainer"
 import Word from "../components/Word"
 
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <MainContainer>
         <Gibbet />
         <Word />
-        <Letters />
+        <Alphabet />
       </MainContainer>
     </Background>
   )

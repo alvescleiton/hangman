@@ -1,6 +1,6 @@
 import { Container, Letter } from "./styles"
 
-const Letters = () => {
+const Alphabet = () => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
 
   return (
@@ -12,4 +12,4 @@ const Letters = () => {
   )
 }
 
-export default Letters
+export default Alphabet
