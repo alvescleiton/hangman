@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+interface LeterProps {
+  disabled?: boolean
+}
 
 export const Container = styled.div`
   display: flex;
@@ -8,7 +12,7 @@ export const Container = styled.div`
   margin-top: 30px;
 `
 
-export const Letter = styled.button`
+export const Letter = styled.button<LeterProps>`
   width: 50px;
   height: 50px;
   border: 2px solid #444;
@@ -22,8 +26,15 @@ export const Letter = styled.button`
   text-transform: uppercase;
   transition: .25s all ease;
 
-  &:hover {
-    background: #000;
-    color: #FFF;
-  }
+  ${props => !props.disabled && css`
+    &:hover {
+      background: #000;
+      color: #FFF;
+    }
+  `}
+
+  ${props => props.disabled && css`
+    opacity: 0.3;
+    cursor: not-allowed;
+  `}
 `

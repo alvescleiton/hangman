@@ -1,21 +1,22 @@
+import { useContext } from 'react'
+import { AlphabetContext } from '../../hooks/AlphabetContext'
 import { Container, Item } from './styles'
 
 const Word = () => {
+  const { listUsedLetters } = useContext(AlphabetContext)
+  const word = 'Cleiton Sousa'
+
+  if (!word) return null
+
+  const wordArray = word.toLowerCase().split('')
+
   return (
     <Container>
-      <Item>c</Item>
-      <Item>l</Item>
-      <Item>e</Item>
-      <Item>i</Item>
-      <Item>t</Item>
-      <Item>o</Item>
-      <Item>n</Item>
-      <Item space={true}> </Item>
-      <Item>a</Item>
-      <Item>l</Item>
-      <Item>v</Item>
-      <Item>e</Item>
-      <Item>s</Item>
+      {wordArray.map((singleLetter, index) => (
+        <Item key={`${singleLetter}-${index}`} space={singleLetter === ' '}>
+          {listUsedLetters.includes(singleLetter) && singleLetter}
+        </Item>
+      ))}
     </Container>
   )
 }
