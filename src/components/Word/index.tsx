@@ -1,26 +1,15 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { AlphabetContext } from '../../hooks/AlphabetContext'
+import { WordContext } from '../../hooks/WordContext'
 import { Container, Item } from './styles'
-
-import wordList from './wordsList.json'
 
 const Word = () => {
   const { listUsedLetters } = useContext(AlphabetContext)
-  const [word, setWord] = useState('')
+  const { word, resetWord } = useContext(WordContext)
 
   useEffect(() => {
-    (async () => {
-      const index = chooseWord()
-
-      setWord(wordList[index])
-    })()
+    resetWord()
   }, [])
-
-  const chooseWord = () => {
-    const randomNumber = Math.floor(Math.random() * wordList.length)
-
-    return randomNumber
-  }
 
   if (!word) {
     return <Container><p>Loading...</p></Container>

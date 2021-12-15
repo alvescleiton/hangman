@@ -5,18 +5,21 @@ import Alphabet from '../components/Alphabet'
 import MainContainer from "../components/MainContainer"
 import Word from "../components/Word"
 import { AlphabetProvider } from "../hooks/AlphabetContext"
+import { WordProvider } from "../hooks/WordContext"
 
 const Home: NextPage = () => {
   return (
-    <AlphabetProvider>
-      <Background>
-        <MainContainer>
-          <Gibbet />
-          <Word />
-          <Alphabet />
-        </MainContainer>
-      </Background>
-    </AlphabetProvider>
+    <WordProvider>
+      <AlphabetProvider>
+        <Background>
+          <MainContainer>
+            <Gibbet />
+            <Word />
+            <Alphabet />
+          </MainContainer>
+        </Background>
+      </AlphabetProvider>
+    </WordProvider>
   )
 }
 
