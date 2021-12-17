@@ -4,9 +4,10 @@ type CreateContextType = {
   letter: string
   setLetter: Dispatch<SetStateAction<string>>
   listUsedLetters: string[]
+  setListUsedLetters: Dispatch<SetStateAction<string[]>>
 }
 
-type AlphabetContextType = {
+type AlphabetProviderType = {
   children: React.ReactNode
 }
 
@@ -14,9 +15,10 @@ export const AlphabetContext = createContext<CreateContextType>({
   letter: '',
   setLetter: () => { },
   listUsedLetters: [],
+  setListUsedLetters: () => { },
 })
 
-export const AlphabetProvider = ({ children }: AlphabetContextType) => {
+export const AlphabetProvider = ({ children }: AlphabetProviderType) => {
   const [letter, setLetter] = useState('')
   const [listUsedLetters, setListUsedLetters] = useState<string[]>([])
 
@@ -27,7 +29,7 @@ export const AlphabetProvider = ({ children }: AlphabetContextType) => {
   }, [letter])
 
   return (
-    <AlphabetContext.Provider value={{ letter, setLetter, listUsedLetters }}>
+    <AlphabetContext.Provider value={{ letter, setLetter, listUsedLetters, setListUsedLetters }}>
       {children}
     </AlphabetContext.Provider>
   )
