@@ -9,7 +9,7 @@ type CreateContextType = {
   resetGame: () => void
 }
 
-type EndGameProviderType = {
+type EndGameProviderProps = {
   children: React.ReactNode
 }
 
@@ -20,35 +20,63 @@ export const EndGameContext = createContext<CreateContextType>({
   resetGame: () => { },
 })
 
-export const EndGameProvider = ({ children }: EndGameProviderType) => {
+export const EndGameProvider = ({ children }: EndGameProviderProps) => {
   const [endGame, setEndGame] = useState(false)
   const [winner, setWinner] = useState(false)
   const [loser, setLoser] = useState(false)
-  const { listUsedLetters, setListUsedLetters } = useContext(AlphabetContext)
+  const { letter, rightLetters, setRightLetters, wrongLetters, setWrongLetters, setListUsedLetters } = useContext(AlphabetContext)
   const { word, resetWord } = useContext(WordContext)
+
+  useEffect(() => {
+    if (letter.length) {
+      const wordArray = word.split('')
+
+      if (wordArray.includes(letter)) {
+        setRightLetters([...rightLetters, letter])
+      } else {
+        setWrongLetters([...wrongLetters, letter])
+      }
+    }
+  }, [letter])
+
+  useEffect(() => {
+    checkWinner()
+  }, [rightLetters])
+
+  useEffect(() => {
+    checkLoser()
+  }, [wrongLetters])
 
   const resetGame = () => {
     setEndGame(false)
     setWinner(false)
     setLoser(false)
-    resetWord()
     setListUsedLetters([])
+    setRightLetters([])
+    setWrongLetters([])
+    resetWord()
   }
 
-  useEffect(() => {
-    if (listUsedLetters.length > 0) {
-      const wordArray = word.split('')
+  const checkWinner = () => {
+    const wordArray = word.split('')
 
-      var win = wordArray.every(letter => {
-        return listUsedLetters.includes(letter)
-      })
+    var win = rightLetters.length > 0 && wordArray.every(letter => {
+      return rightLetters.includes(letter)
+    })
 
-      if (win) {
-        setEndGame(true)
-        setWinner(true)
-      }
+    if (win) {
+      setEndGame(true)
+      setWinner(true)
     }
-  }, [listUsedLetters])
+  }
+
+  const checkLoser = () => {
+    const lose = wrongLetters.length >= 6 && wrongLetters.length > 0
+    if (lose) {
+      setEndGame(true)
+      setLoser(true)
+    }
+  }
 
   return (
     <EndGameContext.Provider value={{ endGame, winner, loser, resetGame }}>
