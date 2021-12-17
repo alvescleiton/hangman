@@ -4,12 +4,21 @@ interface LeterProps {
   disabled?: boolean
 }
 
-export const Container = styled.div`
+interface ContainerProps {
+  disabled?: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin-top: 30px;
+
+  ${props => props.disabled && css`
+    opacity: 0.5;
+    pointer-events: none;
+  `}
 `
 
 export const Letter = styled.button<LeterProps>`
