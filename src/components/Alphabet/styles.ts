@@ -50,7 +50,7 @@ export const Letter = styled.button<LeterProps>`
     cursor: not-allowed;
 
     ${props.correct && css`
-      background: #05ff26;
+      background: #00d01b;
     `}
 
     ${props.wrong && css`
