@@ -4,7 +4,7 @@ import { EndGameContext } from "../../hooks/EndGameContext"
 import { Container, Letter } from "./styles"
 
 const Alphabet = () => {
-  const { setLetter, listUsedLetters } = useContext(AlphabetContext)
+  const { setLetter, listUsedLetters, rightLetters, wrongLetters } = useContext(AlphabetContext)
   const { endGame } = useContext(EndGameContext)
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
@@ -24,6 +24,8 @@ const Alphabet = () => {
           key={letter}
           onClick={() => handleLetter(letter)}
           disabled={listUsedLetters.includes(letter)}
+          correct={rightLetters.includes(letter)}
+          wrong={wrongLetters.includes(letter)}
         >
           {letter}
         </Letter>

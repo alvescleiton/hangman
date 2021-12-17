@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components'
 
 interface LeterProps {
   disabled?: boolean
+  correct?: boolean
+  wrong?: boolean
 }
 
 interface ContainerProps {
@@ -22,6 +24,7 @@ export const Container = styled.div<ContainerProps>`
 `
 
 export const Letter = styled.button<LeterProps>`
+  position: relative;
   width: 50px;
   height: 50px;
   border: 2px solid #444;
@@ -45,5 +48,35 @@ export const Letter = styled.button<LeterProps>`
   ${props => props.disabled && css`
     opacity: 0.3;
     cursor: not-allowed;
+
+    ${props.correct && css`
+      background: #05ff26;
+    `}
+
+    ${props.wrong && css`
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 40px;
+        height: 2px;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background: #FF0000;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 40px;
+        height: 2px;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        background: #FF0000;
+      }
+    `}
   `}
 `
