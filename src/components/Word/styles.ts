@@ -1,16 +1,12 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type ItemProps = {
   space?: boolean
 }
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-`
+type ContainerProps = {
+  winner?: boolean
+}
 
 export const Item = styled.div<ItemProps>`
   margin: 10px 6px;
@@ -33,4 +29,18 @@ export const Item = styled.div<ItemProps>`
       border-bottom: 1px solid transparent;
     `
   }
-`;
+`
+
+export const Container = styled.div<ContainerProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+
+  ${props => props.winner && css`
+    ${Item} {
+      color: green;
+    }
+  `}
+`
