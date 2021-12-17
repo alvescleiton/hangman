@@ -24,8 +24,8 @@ export const EndGameProvider = ({ children }: EndGameProviderProps) => {
   const [endGame, setEndGame] = useState(false)
   const [winner, setWinner] = useState(false)
   const [loser, setLoser] = useState(false)
-  const { letter, rightLetters, setRightLetters, wrongLetters, setWrongLetters, setListUsedLetters } = useContext(AlphabetContext)
-  const { word, resetWord } = useContext(WordContext)
+  const { letter, setLetter, rightLetters, setRightLetters, wrongLetters, setWrongLetters, setListUsedLetters } = useContext(AlphabetContext)
+  const { word, setWord, randomWord } = useContext(WordContext)
 
   useEffect(() => {
     if (letter.length) {
@@ -54,7 +54,10 @@ export const EndGameProvider = ({ children }: EndGameProviderProps) => {
     setListUsedLetters([])
     setRightLetters([])
     setWrongLetters([])
-    resetWord()
+    setLetter('')
+    setWord('')
+
+    randomWord()
   }
 
   const checkWinner = () => {

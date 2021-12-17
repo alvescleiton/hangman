@@ -6,11 +6,11 @@ import { Container, Item } from './styles'
 
 const Word = () => {
   const { listUsedLetters } = useContext(AlphabetContext)
-  const { word, resetWord } = useContext(WordContext)
+  const { word, randomWord } = useContext(WordContext)
   const { winner } = useContext(EndGameContext)
 
   useEffect(() => {
-    resetWord()
+    randomWord()
   }, [])
 
   if (!word) {

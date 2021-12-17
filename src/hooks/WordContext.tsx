@@ -3,7 +3,8 @@ import wordList from './../services/wordsList.json'
 
 type CreateContextType = {
   word: string
-  resetWord: () => void
+  setWord: (word: string) => void
+  randomWord: () => void
 }
 
 type WordContextType = {
@@ -12,20 +13,21 @@ type WordContextType = {
 
 export const WordContext = createContext<CreateContextType>({
   word: '',
-  resetWord: () => { },
+  setWord: () => { },
+  randomWord: () => { },
 })
 
 export const WordProvider = ({ children }: WordContextType) => {
   const [word, setWord] = useState('')
 
-  const resetWord = () => {
+  const randomWord = () => {
     const index = Math.floor(Math.random() * wordList.length)
 
     setWord(wordList[index])
   }
 
   return (
-    <WordContext.Provider value={{ word, resetWord }}>
+    <WordContext.Provider value={{ word, setWord, randomWord }}>
       {children}
     </WordContext.Provider>
   )
