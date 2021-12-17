@@ -1,10 +1,12 @@
 import { useContext } from "react"
 import { AlphabetContext } from "../../hooks/AlphabetContext"
 import { EndGameContext } from "../../hooks/EndGameContext"
+import { WordContext } from "../../hooks/WordContext"
 import { Container, Letter } from "./styles"
 
 const Alphabet = () => {
   const { setLetter, listUsedLetters, rightLetters, wrongLetters } = useContext(AlphabetContext)
+  const { word } = useContext(WordContext)
   const { endGame } = useContext(EndGameContext)
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
@@ -16,6 +18,8 @@ const Alphabet = () => {
       }
     }
   }
+
+  if (!word) return null
 
   return (
     <Container disabled={endGame}>
