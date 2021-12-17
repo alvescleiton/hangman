@@ -21,9 +21,11 @@ export const WordProvider = ({ children }: WordContextType) => {
   const [word, setWord] = useState('')
 
   const randomWord = () => {
-    const index = Math.floor(Math.random() * wordList.length)
+    setTimeout(() => {
+      const index = Math.floor(Math.random() * wordList.length)
 
-    setWord(wordList[index])
+      setWord(wordList[index])
+    }, 2000)
   }
 
   return (
