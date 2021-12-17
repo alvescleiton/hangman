@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { createContext, useState } from 'react'
 import wordList from './../services/wordsList.json'
 
 type CreateContextType = {
