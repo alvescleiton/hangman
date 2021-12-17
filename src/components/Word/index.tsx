@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import { AlphabetContext } from '../../hooks/AlphabetContext'
 import { EndGameContext } from '../../hooks/EndGameContext'
 import { WordContext } from '../../hooks/WordContext'
-import { Container, Item } from './styles'
+import { Container, Item, Loading } from './styles'
 
 const Word = () => {
   const { listUsedLetters } = useContext(AlphabetContext)
@@ -14,7 +14,7 @@ const Word = () => {
   }, [])
 
   if (!word) {
-    return <Container><p>Loading...</p></Container>
+    return <Container><Loading>Loading...</Loading></Container>
   }
 
   const wordArray = word.toLowerCase().split('')

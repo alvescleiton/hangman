@@ -44,3 +44,7 @@ export const Container = styled.div<ContainerProps>`
     }
   `}
 `
+
+export const Loading = styled.div`
+  line-height: 60px;
+`
