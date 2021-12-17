@@ -12,18 +12,20 @@ const EndGame = () => {
       {winner && (
         <WinnerContainer>
           <Title>You win!!! =)</Title>
-          <Subtitle>The word is <strong>{word ? word : '...'}</strong></Subtitle>
+          <Subtitle>The word is <strong>{word.toUpperCase()}</strong></Subtitle>
         </WinnerContainer>
       )}
 
       {loser && (
         <LoserContainer>
           <Title>You lose! =(</Title>
-          <Subtitle>The word is <strong>{word ? word : '...'}</strong></Subtitle>
+          <Subtitle>The word is <strong>{word.toUpperCase()}</strong></Subtitle>
         </LoserContainer>
       )}
 
-      <ResetButton onClick={resetGame}>Restart Game</ResetButton>
+      {(winner || loser) && (
+        <ResetButton onClick={resetGame}>Restart Game</ResetButton>
+      )}
     </Container>
   )
 }
