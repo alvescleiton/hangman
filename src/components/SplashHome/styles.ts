@@ -57,7 +57,5 @@ export const PlayButton = styled.button`
   &:hover {
     background: #333;
     color: #fff;
-    box-shadow: inset 0px 0px 5px rgba(255,255,255, 0.5);
-    transform: skew(0, -5deg);
   }
 `
