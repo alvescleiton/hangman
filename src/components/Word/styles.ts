@@ -19,8 +19,14 @@ export const Item = styled.div<ItemProps>`
   border-bottom: 1px solid #000;
   text-transform: uppercase;
 
+  @media screen and (max-width: 767px) {
+    margin: 6px;
+    height: 30px;
+    line-height: 30px;
+  }
+
   ${
-    ({ space }) => space && `
+    ({ space }) => space && css`
       flex: 0 0 100%;
       width: 100%;
       height: 0;

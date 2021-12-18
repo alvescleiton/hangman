@@ -38,6 +38,11 @@ export const Letter = styled.button<LeterProps>`
   text-transform: uppercase;
   transition: .25s all ease;
 
+  @media screen and (max-width: 767px) {
+    width: 45px;
+    height: 45px;    
+  }
+
   ${props => !props.disabled && css`
     &:hover {
       background: #000;
