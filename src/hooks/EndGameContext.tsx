@@ -74,7 +74,8 @@ export const EndGameProvider = ({ children }: EndGameProviderProps) => {
   }
 
   const checkLoser = () => {
-    const lose = wrongLetters.length >= 6 && wrongLetters.length > 0
+    const allowedWrongLetters = 7
+    const lose = wrongLetters.length >= allowedWrongLetters && wrongLetters.length > 0
     if (lose) {
       setEndGame(true)
       setLoser(true)
