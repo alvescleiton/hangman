@@ -10,7 +10,6 @@ class MyDocument extends Document {
     return (
       <Html lang='pt-BR'>
         <Head>
-          <title>Hangman - Game</title>
           <meta name="apple-mobile-web-app-status-bar-style" content="white" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
