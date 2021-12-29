@@ -1,5 +1,7 @@
 {
   "name": "hangman",
+  "description": "Hangman game made with React and Next.js",
+  "author": "Cleiton Alves <dev.cleitonalves@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "next dev",
